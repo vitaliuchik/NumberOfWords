@@ -1,0 +1,4 @@
+infile="data_rus.txt"
+out_by_a="outA.txt"
+out_by_n="outN.txt"
+threads=2

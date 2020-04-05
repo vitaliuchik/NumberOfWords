@@ -1,0 +1,3 @@
+C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/cmake-build-debug/CMakeFiles/CountWords.dir
+C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/cmake-build-debug/CMakeFiles/edit_cache.dir
