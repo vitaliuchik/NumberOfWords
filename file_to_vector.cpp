@@ -1,14 +1,19 @@
+
 #include "file_to_vector.h"
 
+
+#include "multithread.h"
+#include "main.h"
+#include "time_counting.h"
+
 namespace ba = boost::locale::boundary;
-
-
 
 std::vector<std::string> extract_words(std::string &file_in) {
     boost::locale::generator gen;
     std::locale loc = gen("");
     std::locale::global(loc);
-
+    // Start reading file
+    auto readingStart = get_current_time_fenced();
     std::string text;
     std::vector<std::string> words;
     file_in = "../" + file_in.substr(1,file_in.length()-2);
@@ -24,6 +29,9 @@ std::vector<std::string> extract_words(std::string &file_in) {
     map.rule(ba::word_letters);
     for(ba::ssegment_index::iterator it=map.begin(),e=map.end();it!=e;++it)
         words.emplace_back(std::move(*it));
+    auto readingFinish = get_current_time_fenced();
+    auto reading_time = readingFinish - readingStart;
+    std::cout << "Loading: " << to_us(reading_time) << std::endl;
     return words;
 }
 
@@ -34,8 +42,7 @@ std::string read_txt (std::string &file_in) {
                              (std::istreambuf_iterator<char>()    ) );
         return content;}
     else{
-        file_in = "../" + file_in;
-        read_txt(file_in);
+        throw InvalidConfigurationException();
     }
 }
 

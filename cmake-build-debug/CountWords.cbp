@@ -100,6 +100,15 @@
 		<Unit filename="C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/multithread.h">
 			<Option target="CountWords"/>
 		</Unit>
+		<Unit filename="C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/one_threaded.cpp">
+			<Option target="CountWords"/>
+		</Unit>
+		<Unit filename="C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/one_threaded.h">
+			<Option target="CountWords"/>
+		</Unit>
+		<Unit filename="C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/time_counting.h">
+			<Option target="CountWords"/>
+		</Unit>
 		<Unit filename="C:/sotnyk/UCU/II_year/ACS/Labs/lab4_words_countung/count_words/count_words/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

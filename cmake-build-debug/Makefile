@@ -203,6 +203,33 @@ multithread.cpp.s:
 	$(MAKE) -f CMakeFiles\CountWords.dir\build.make CMakeFiles/CountWords.dir/multithread.cpp.s
 .PHONY : multithread.cpp.s
 
+one_threaded.obj: one_threaded.cpp.obj
+
+.PHONY : one_threaded.obj
+
+# target to build an object file
+one_threaded.cpp.obj:
+	$(MAKE) -f CMakeFiles\CountWords.dir\build.make CMakeFiles/CountWords.dir/one_threaded.cpp.obj
+.PHONY : one_threaded.cpp.obj
+
+one_threaded.i: one_threaded.cpp.i
+
+.PHONY : one_threaded.i
+
+# target to preprocess a source file
+one_threaded.cpp.i:
+	$(MAKE) -f CMakeFiles\CountWords.dir\build.make CMakeFiles/CountWords.dir/one_threaded.cpp.i
+.PHONY : one_threaded.cpp.i
+
+one_threaded.s: one_threaded.cpp.s
+
+.PHONY : one_threaded.s
+
+# target to generate assembly for a file
+one_threaded.cpp.s:
+	$(MAKE) -f CMakeFiles\CountWords.dir\build.make CMakeFiles/CountWords.dir/one_threaded.cpp.s
+.PHONY : one_threaded.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -221,6 +248,9 @@ help:
 	@echo ... multithread.obj
 	@echo ... multithread.i
 	@echo ... multithread.s
+	@echo ... one_threaded.obj
+	@echo ... one_threaded.i
+	@echo ... one_threaded.s
 .PHONY : help
 
 

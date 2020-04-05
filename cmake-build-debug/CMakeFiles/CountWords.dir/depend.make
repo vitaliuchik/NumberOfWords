@@ -5,14 +5,23 @@ CMakeFiles/CountWords.dir/file_to_vector.cpp.obj: ../file_to_vector.cpp
 CMakeFiles/CountWords.dir/file_to_vector.cpp.obj: ../file_to_vector.h
 CMakeFiles/CountWords.dir/file_to_vector.cpp.obj: ../main.h
 CMakeFiles/CountWords.dir/file_to_vector.cpp.obj: ../multithread.h
+CMakeFiles/CountWords.dir/file_to_vector.cpp.obj: ../time_counting.h
 
 CMakeFiles/CountWords.dir/main.cpp.obj: ../file_to_vector.h
 CMakeFiles/CountWords.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/CountWords.dir/main.cpp.obj: ../main.h
 CMakeFiles/CountWords.dir/main.cpp.obj: ../multithread.h
+CMakeFiles/CountWords.dir/main.cpp.obj: ../one_threaded.h
+CMakeFiles/CountWords.dir/main.cpp.obj: ../time_counting.h
 
 CMakeFiles/CountWords.dir/multithread.cpp.obj: ../file_to_vector.h
-CMakeFiles/CountWords.dir/multithread.cpp.obj: ../main.h
 CMakeFiles/CountWords.dir/multithread.cpp.obj: ../multithread.cpp
 CMakeFiles/CountWords.dir/multithread.cpp.obj: ../multithread.h
+CMakeFiles/CountWords.dir/multithread.cpp.obj: ../one_threaded.h
+CMakeFiles/CountWords.dir/multithread.cpp.obj: ../time_counting.h
+
+CMakeFiles/CountWords.dir/one_threaded.cpp.obj: ../file_to_vector.h
+CMakeFiles/CountWords.dir/one_threaded.cpp.obj: ../one_threaded.cpp
+CMakeFiles/CountWords.dir/one_threaded.cpp.obj: ../one_threaded.h
+CMakeFiles/CountWords.dir/one_threaded.cpp.obj: ../time_counting.h
 

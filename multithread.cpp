@@ -3,8 +3,12 @@
 //
 
 #include "multithread.h"
+
 #include "file_to_vector.h"
-#include "main.h"
+#include "time_counting.h"
+#include "one_threaded.h"
+
+//#define DebugOutput
 
 
 void wordsCounting(std::vector<std::string>::iterator wordsIterBegin, std::vector<std::string>::iterator wordsIterEnd, std::map<std::string, unsigned int>& res_map) {
@@ -32,6 +36,8 @@ void mapsJoin(std::map<std::string, unsigned int>& res_map, std::map<std::string
 void multiThreadCount(const std::string& in, const std::string& outA, const std::string& outN, int threadsNum){
     std::vector<std::string> words = extract_words((std::string &) in);
 
+    auto analizingStart = get_current_time_fenced();
+
     std::vector<std::thread> threads_v(threadsNum);
     std::vector<std::map<std::string, unsigned int>> map_v(threadsNum);
 
@@ -50,45 +56,49 @@ void multiThreadCount(const std::string& in, const std::string& outA, const std:
         t.join();
     }
 
-//    int numOfActiveMaps = threadsNum;
-//    int j = 1;
-//    while (numOfActiveMaps > 1) {
-//        std::cout << "i = " << static_cast<int>(numOfActiveMaps/2) << std::endl;
-//        for (int i = 0; i < static_cast<int>(numOfActiveMaps/2); ++i) {
-//            threads_v[i*j*2] = std::thread{
-//                mapsJoin,
-//                std::ref(map_v[i*j*2]),
-//                std::ref(map_v[i*j*2 + j])
-//            };
-//        }
-//
-//        for(auto& t: threads_v) {
-//            t.join();
-//        }
-//
-//
-//
-//        numOfActiveMaps = static_cast<int>(numOfActiveMaps/2);
-//        j *= 2;
-//
-//
-//    }
-//    writeKeySortedMap("../"+outA.substr (1,outN.length()-2), &map_v[0]);
-//    writeValueSortedMap("../"+outN.substr (1,outN.length()-2), map_v[0]);
+    int numOfActiveMaps = threadsNum;
+    int j = 1;
+    while (numOfActiveMaps > 1) {
+#ifdef DebugOutput
+        std::cout << "numOfActiveMaps = " << static_cast<int>(numOfActiveMaps) << std::endl;
+#endif
+        for (int i = 0; i < static_cast<int>(numOfActiveMaps/2); ++i) {
+#ifdef DebugOutput
+            std::cout << "thread " << i*j*2 << " is joining " << i*j*2 << " and " << i*j*2 + j << " maps" << std::endl;
+#endif
+            threads_v[i*j*2] = std::thread{
+                mapsJoin,
+                std::ref(map_v[i*j*2]),
+                std::ref(map_v[i*j*2 + j])
+            };
+        }
 
 
-    std::map<std::string, unsigned int> wordsCount;
-    for (int i = 0; i < map_v.size(); ++i) {
+        for (int i = 0; i < static_cast<int>(numOfActiveMaps/2); ++i) {
+            threads_v[i*j*2].join();
+        }
 
-        mapsJoin(std::ref(wordsCount),std::ref(map_v[i]));
+
+
+        numOfActiveMaps = static_cast<int>(std::ceil(static_cast<float>(numOfActiveMaps)/2));
+        j *= 2;
+
 
     }
 
+    auto analizingFinish = get_current_time_fenced();
+    auto analizing_time = analizingFinish - analizingStart;
+    std::cout << "Analyzing: " << to_us(analizing_time) << std::endl;
+    writeKeySortedMap("../"+outA.substr (1,outN.length()-2), map_v[0]);
+    writeValueSortedMap("../"+outN.substr (1,outN.length()-2), map_v[0]);
 
 
-
-    writeKeySortedMap("../"+outA.substr (1,outN.length()-2), &wordsCount);
-    writeValueSortedMap("../"+outN.substr (1,outN.length()-2), wordsCount);
+//    std::map<std::string, unsigned int> wordsCount;
+//    for (int i = 0; i < map_v.size(); ++i) {
+//        mapsJoin(std::ref(wordsCount),std::ref(map_v[i]));
+//    }
+//    writeKeySortedMap("../"+outA.substr (1,outN.length()-2), &wordsCount);
+//    writeValueSortedMap("../"+outN.substr (1,outN.length()-2), wordsCount);
 
 }
 

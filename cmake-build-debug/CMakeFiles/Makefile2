@@ -73,12 +73,12 @@ preinstall:
 CMakeFiles/CountWords.dir/all:
 	$(MAKE) -f CMakeFiles\CountWords.dir\build.make CMakeFiles/CountWords.dir/depend
 	$(MAKE) -f CMakeFiles\CountWords.dir\build.make CMakeFiles/CountWords.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\sotnyk\UCU\II_year\ACS\Labs\lab4_words_countung\count_words\count_words\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target CountWords"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\sotnyk\UCU\II_year\ACS\Labs\lab4_words_countung\count_words\count_words\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target CountWords"
 .PHONY : CMakeFiles/CountWords.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CountWords.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\sotnyk\UCU\II_year\ACS\Labs\lab4_words_countung\count_words\count_words\cmake-build-debug\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\sotnyk\UCU\II_year\ACS\Labs\lab4_words_countung\count_words\count_words\cmake-build-debug\CMakeFiles 5
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/CountWords.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\sotnyk\UCU\II_year\ACS\Labs\lab4_words_countung\count_words\count_words\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/CountWords.dir/rule

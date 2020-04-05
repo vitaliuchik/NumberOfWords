@@ -1,4 +1,4 @@
-infile="data_rus.txt"
+infile="data3.txt"
 out_by_a="outA.txt"
 out_by_n="outN.txt"
-threads=2
+threads=17
